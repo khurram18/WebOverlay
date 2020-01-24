@@ -16,12 +16,14 @@ final class OverlayViewController: UIViewController {
 private let webView = WKWebView()
 private let topLabel = UILabel()
 private let bottomLabel = UILabel()
+private let adLabel = UILabel()
 private let closeButton = UIButton(type: .custom)
 
 private var urlObservation: NSKeyValueObservation?
 private var option1Observation: NSKeyValueObservation?
 private var option2Observation: NSKeyValueObservation?
 private var closeTitleObservation: NSKeyValueObservation?
+private var adIdObservation: NSKeyValueObservation?
 
 override func viewWillAppear(_ animated: Bool) {
   super.viewWillAppear(animated)
@@ -41,12 +43,13 @@ override func viewDidAppear(_ animated: Bool) {
 override func loadView() {
   let rootView = UIView()
   
-  for view in [webView, topLabel, bottomLabel, closeButton] {
+  for view in [webView, topLabel, bottomLabel, adLabel, closeButton] {
     view.translatesAutoresizingMaskIntoConstraints = false
   }
   rootView.addSubview(webView)
   rootView.addSubview(topLabel)
   rootView.addSubview(bottomLabel)
+  rootView.addSubview(adLabel)
   rootView.addSubview(closeButton)
   
   webView.leftAnchor.constraint(equalTo: rootView.leftAnchor).isActive = true
@@ -59,6 +62,9 @@ override func loadView() {
   
   bottomLabel.centerXAnchor.constraint(equalTo: rootView.centerXAnchor).isActive = true
   bottomLabel.bottomAnchor.constraint(equalTo: rootView.bottomAnchor, constant: -20).isActive = true
+  
+  adLabel.centerXAnchor.constraint(equalTo: rootView.centerXAnchor).isActive = true
+  adLabel.centerYAnchor.constraint(equalTo: rootView.centerYAnchor).isActive = true
   
   closeButton.leftAnchor.constraint(equalTo: rootView.leftAnchor, constant: 20).isActive = true
   closeButton.topAnchor.constraint(equalTo: rootView.topAnchor, constant: 20).isActive = true
@@ -80,6 +86,9 @@ private func observeViewModel() {
   option2Observation = viewModel.observe(\OverlayViewModel.option2, options: [.new, .initial]) { _, change in
     self.bottomLabel.text = change.newValue
   }
+  adIdObservation = viewModel.observe(\OverlayViewModel.advertisingId, options: [.new, .initial]) { _, change in
+    self.adLabel.text = change.newValue
+  }
   closeTitleObservation = viewModel.observe(\OverlayViewModel.closeTitle, options: [.new, .initial]) { _, change in
     guard let title = change.newValue else { return }
     self.closeButton.setTitle(title, for: .normal)
@@ -91,6 +100,7 @@ private func removeViewModelObservers() {
   option1Observation = nil
   option2Observation = nil
   closeTitleObservation = nil
+  adIdObservation = nil
 }
   
 } // class OverlayViewController

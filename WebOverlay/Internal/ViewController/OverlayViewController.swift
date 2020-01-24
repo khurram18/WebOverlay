@@ -10,24 +10,32 @@ import WebKit
 import UIKit
 
 final class OverlayViewController: UIViewController {
-var options = [StartOptions: String]()
-private let webView: WKWebView = {
-  let view = WKWebView()
-  return view
-}()
+  
+@objc dynamic var viewModel: OverlayViewModel?
+  
+private let webView = WKWebView()
 private let topLabel = UILabel()
 private let bottomLabel = UILabel()
-private let closeButton: UIButton = {
-  let button = UIButton(type: .custom)
-  button.setTitle("Close", for: .normal)
-  return button
-}()
+private let closeButton = UIButton(type: .custom)
+
+private var urlObservation: NSKeyValueObservation?
+private var option1Observation: NSKeyValueObservation?
+private var option2Observation: NSKeyValueObservation?
+private var closeTitleObservation: NSKeyValueObservation?
+
+override func viewWillAppear(_ animated: Bool) {
+  super.viewWillAppear(animated)
+  observeViewModel()
+}
   
-override func viewDidLoad() {
-  super.viewDidLoad()
-  webView.load(URLRequest(url: URL(string: "https://www.pollfish.com")!))
-  topLabel.text = options[.option1] ?? "defaultOption1"
-  bottomLabel.text = options[.option2] ?? "defaultOption2"
+override func viewWillDisappear(_ animated: Bool) {
+  super.viewWillDisappear(animated)
+  removeViewModelObservers()
+}
+  
+override func viewDidAppear(_ animated: Bool) {
+  super.viewDidAppear(animated)
+  viewModel?.start()
 }
   
 override func loadView() {
@@ -58,4 +66,31 @@ override func loadView() {
   view = rootView
 }
   
+private func observeViewModel() {
+  
+  guard let viewModel = viewModel else { return }
+  
+  urlObservation = viewModel.observe(\OverlayViewModel.urlString, options: [.new, .initial]) { _, change in
+    guard let newValue = change.newValue, let url = URL(string: newValue) else { return }
+    self.webView.load(URLRequest(url: url))
+  }
+  option1Observation = viewModel.observe(\OverlayViewModel.option1, options: [.new, .initial]) { _, change in
+    self.topLabel.text = change.newValue
+  }
+  option2Observation = viewModel.observe(\OverlayViewModel.option2, options: [.new, .initial]) { _, change in
+    self.bottomLabel.text = change.newValue
+  }
+  closeTitleObservation = viewModel.observe(\OverlayViewModel.closeTitle, options: [.new, .initial]) { _, change in
+    guard let title = change.newValue else { return }
+    self.closeButton.setTitle(title, for: .normal)
+  }
 }
+  
+private func removeViewModelObservers() {
+  urlObservation = nil
+  option1Observation = nil
+  option2Observation = nil
+  closeTitleObservation = nil
+}
+  
+} // class OverlayViewController

@@ -22,7 +22,9 @@ func show() {
   guard let rootViewController = UIApplication.shared.windows.last?.rootViewController else { return }
   let parentController = topViewController(from: rootViewController)
   let viewController = OverlayViewController()
-  viewController.options = options
+  let viewModel = OverlayViewModel()
+  viewModel.options = options
+  viewController.viewModel = viewModel
   parentController.present(viewController, animated: true, completion: nil)
   overlayViewController = viewController
 }

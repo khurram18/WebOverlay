@@ -20,6 +20,10 @@
 		20AEEE6523D9D65600A9CED3 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AEEE6323D9D65600A9CED3 /* Notifications.swift */; };
 		20FF3CA723DAB74E00A09064 /* OverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FF3CA623DAB74E00A09064 /* OverlayViewController.swift */; };
 		20FF3CA923DABB5000A09064 /* helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FF3CA823DABB5000A09064 /* helpers.swift */; };
+		20FF3CB323DB4F3300A09064 /* OverlayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FF3CB223DB4F3300A09064 /* OverlayViewModel.swift */; };
+		20FF3CB423DB4F3300A09064 /* OverlayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FF3CB223DB4F3300A09064 /* OverlayViewModel.swift */; };
+		20FF3CB623DB5D4000A09064 /* config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FF3CB523DB5D4000A09064 /* config.swift */; };
+		20FF3CB723DB5D4000A09064 /* config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FF3CB523DB5D4000A09064 /* config.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +49,8 @@
 		20AEEE6323D9D65600A9CED3 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		20FF3CA623DAB74E00A09064 /* OverlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayViewController.swift; sourceTree = "<group>"; };
 		20FF3CA823DABB5000A09064 /* helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helpers.swift; sourceTree = "<group>"; };
+		20FF3CB223DB4F3300A09064 /* OverlayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayViewModel.swift; sourceTree = "<group>"; };
+		20FF3CB523DB5D4000A09064 /* config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = config.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +124,8 @@
 			isa = PBXGroup;
 			children = (
 				20FF3CA523DAB72B00A09064 /* ViewController */,
+				20FF3CB123DB4F0700A09064 /* ViewModel */,
+				20FF3CB523DB5D4000A09064 /* config.swift */,
 				20AEEE5D23D9D32600A9CED3 /* OverlayManager.swift */,
 			);
 			path = Internal;
@@ -130,6 +138,14 @@
 				20FF3CA823DABB5000A09064 /* helpers.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		20FF3CB123DB4F0700A09064 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				20FF3CB223DB4F3300A09064 /* OverlayViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,8 +261,10 @@
 				20AEEE6423D9D65600A9CED3 /* Notifications.swift in Sources */,
 				20AEEDC623D9BEDD00A9CED3 /* WebOverlay.swift in Sources */,
 				20FF3CA723DAB74E00A09064 /* OverlayViewController.swift in Sources */,
+				20FF3CB323DB4F3300A09064 /* OverlayViewModel.swift in Sources */,
 				20AEEDCB23D9C03D00A9CED3 /* StartOptions.swift in Sources */,
 				20FF3CA923DABB5000A09064 /* helpers.swift in Sources */,
+				20FF3CB623DB5D4000A09064 /* config.swift in Sources */,
 				20AEEE5E23D9D32600A9CED3 /* OverlayManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,10 +274,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				20AEEE6523D9D65600A9CED3 /* Notifications.swift in Sources */,
+				20FF3CB723DB5D4000A09064 /* config.swift in Sources */,
 				20AEEE5F23D9D32600A9CED3 /* OverlayManager.swift in Sources */,
 				20AEEDBA23D9BBC900A9CED3 /* WebOverlayTests.swift in Sources */,
 				20AEEDC723D9BEDD00A9CED3 /* WebOverlay.swift in Sources */,
 				20AEEDCC23D9C03D00A9CED3 /* StartOptions.swift in Sources */,
+				20FF3CB423DB4F3300A09064 /* OverlayViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

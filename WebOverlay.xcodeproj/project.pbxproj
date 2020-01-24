@@ -10,6 +10,16 @@
 		20AEEDB523D9BBC900A9CED3 /* WebOverlay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20AEEDAB23D9BBC900A9CED3 /* WebOverlay.framework */; };
 		20AEEDBA23D9BBC900A9CED3 /* WebOverlayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AEEDB923D9BBC900A9CED3 /* WebOverlayTests.swift */; };
 		20AEEDBC23D9BBC900A9CED3 /* WebOverlay.h in Headers */ = {isa = PBXBuildFile; fileRef = 20AEEDAE23D9BBC900A9CED3 /* WebOverlay.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		20AEEDC623D9BEDD00A9CED3 /* WebOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AEEDC523D9BEDD00A9CED3 /* WebOverlay.swift */; };
+		20AEEDC723D9BEDD00A9CED3 /* WebOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AEEDC523D9BEDD00A9CED3 /* WebOverlay.swift */; };
+		20AEEDCB23D9C03D00A9CED3 /* StartOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AEEDCA23D9C03D00A9CED3 /* StartOptions.swift */; };
+		20AEEDCC23D9C03D00A9CED3 /* StartOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AEEDCA23D9C03D00A9CED3 /* StartOptions.swift */; };
+		20AEEE5E23D9D32600A9CED3 /* OverlayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AEEE5D23D9D32600A9CED3 /* OverlayManager.swift */; };
+		20AEEE5F23D9D32600A9CED3 /* OverlayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AEEE5D23D9D32600A9CED3 /* OverlayManager.swift */; };
+		20AEEE6423D9D65600A9CED3 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AEEE6323D9D65600A9CED3 /* Notifications.swift */; };
+		20AEEE6523D9D65600A9CED3 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AEEE6323D9D65600A9CED3 /* Notifications.swift */; };
+		20FF3CA723DAB74E00A09064 /* OverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FF3CA623DAB74E00A09064 /* OverlayViewController.swift */; };
+		20FF3CA923DABB5000A09064 /* topViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FF3CA823DABB5000A09064 /* topViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +39,12 @@
 		20AEEDB423D9BBC900A9CED3 /* WebOverlayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebOverlayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		20AEEDB923D9BBC900A9CED3 /* WebOverlayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebOverlayTests.swift; sourceTree = "<group>"; };
 		20AEEDBB23D9BBC900A9CED3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		20AEEDC523D9BEDD00A9CED3 /* WebOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebOverlay.swift; sourceTree = "<group>"; };
+		20AEEDCA23D9C03D00A9CED3 /* StartOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartOptions.swift; sourceTree = "<group>"; };
+		20AEEE5D23D9D32600A9CED3 /* OverlayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayManager.swift; sourceTree = "<group>"; };
+		20AEEE6323D9D65600A9CED3 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		20FF3CA623DAB74E00A09064 /* OverlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayViewController.swift; sourceTree = "<group>"; };
+		20FF3CA823DABB5000A09064 /* topViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = topViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +87,8 @@
 		20AEEDAD23D9BBC900A9CED3 /* WebOverlay */ = {
 			isa = PBXGroup;
 			children = (
-				20AEEDAE23D9BBC900A9CED3 /* WebOverlay.h */,
+				20AEEDC923D9C01600A9CED3 /* Internal */,
+				20AEEDC823D9BFDB00A9CED3 /* Public */,
 				20AEEDAF23D9BBC900A9CED3 /* Info.plist */,
 			);
 			path = WebOverlay;
@@ -84,6 +101,35 @@
 				20AEEDBB23D9BBC900A9CED3 /* Info.plist */,
 			);
 			path = WebOverlayTests;
+			sourceTree = "<group>";
+		};
+		20AEEDC823D9BFDB00A9CED3 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				20AEEDCA23D9C03D00A9CED3 /* StartOptions.swift */,
+				20AEEDAE23D9BBC900A9CED3 /* WebOverlay.h */,
+				20AEEDC523D9BEDD00A9CED3 /* WebOverlay.swift */,
+				20AEEE6323D9D65600A9CED3 /* Notifications.swift */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		20AEEDC923D9C01600A9CED3 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				20FF3CA523DAB72B00A09064 /* ViewController */,
+				20AEEE5D23D9D32600A9CED3 /* OverlayManager.swift */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
+		20FF3CA523DAB72B00A09064 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				20FF3CA623DAB74E00A09064 /* OverlayViewController.swift */,
+				20FF3CA823DABB5000A09064 /* topViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +194,7 @@
 				TargetAttributes = {
 					20AEEDAA23D9BBC900A9CED3 = {
 						CreatedOnToolsVersion = 11.3;
+						LastSwiftMigration = 1130;
 					};
 					20AEEDB323D9BBC900A9CED3 = {
 						CreatedOnToolsVersion = 11.3;
@@ -195,6 +242,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20AEEE6423D9D65600A9CED3 /* Notifications.swift in Sources */,
+				20AEEDC623D9BEDD00A9CED3 /* WebOverlay.swift in Sources */,
+				20FF3CA723DAB74E00A09064 /* OverlayViewController.swift in Sources */,
+				20AEEDCB23D9C03D00A9CED3 /* StartOptions.swift in Sources */,
+				20FF3CA923DABB5000A09064 /* topViewController.swift in Sources */,
+				20AEEE5E23D9D32600A9CED3 /* OverlayManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,7 +255,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20AEEE6523D9D65600A9CED3 /* Notifications.swift in Sources */,
+				20AEEE5F23D9D32600A9CED3 /* OverlayManager.swift in Sources */,
 				20AEEDBA23D9BBC900A9CED3 /* WebOverlayTests.swift in Sources */,
+				20AEEDC723D9BEDD00A9CED3 /* WebOverlay.swift in Sources */,
+				20AEEDCC23D9C03D00A9CED3 /* StartOptions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +397,7 @@
 		20AEEDC023D9BBC900A9CED3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -355,6 +413,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.WebOverlay;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -363,6 +422,7 @@
 		20AEEDC123D9BBC900A9CED3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -386,6 +446,7 @@
 		20AEEDC323D9BBC900A9CED3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = WebOverlayTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -403,6 +464,7 @@
 		20AEEDC423D9BBC900A9CED3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = WebOverlayTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

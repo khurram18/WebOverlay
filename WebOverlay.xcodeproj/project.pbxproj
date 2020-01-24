@@ -19,7 +19,7 @@
 		20AEEE6423D9D65600A9CED3 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AEEE6323D9D65600A9CED3 /* Notifications.swift */; };
 		20AEEE6523D9D65600A9CED3 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AEEE6323D9D65600A9CED3 /* Notifications.swift */; };
 		20FF3CA723DAB74E00A09064 /* OverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FF3CA623DAB74E00A09064 /* OverlayViewController.swift */; };
-		20FF3CA923DABB5000A09064 /* topViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FF3CA823DABB5000A09064 /* topViewController.swift */; };
+		20FF3CA923DABB5000A09064 /* helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FF3CA823DABB5000A09064 /* helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +44,7 @@
 		20AEEE5D23D9D32600A9CED3 /* OverlayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayManager.swift; sourceTree = "<group>"; };
 		20AEEE6323D9D65600A9CED3 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		20FF3CA623DAB74E00A09064 /* OverlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayViewController.swift; sourceTree = "<group>"; };
-		20FF3CA823DABB5000A09064 /* topViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = topViewController.swift; sourceTree = "<group>"; };
+		20FF3CA823DABB5000A09064 /* helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				20FF3CA623DAB74E00A09064 /* OverlayViewController.swift */,
-				20FF3CA823DABB5000A09064 /* topViewController.swift */,
+				20FF3CA823DABB5000A09064 /* helpers.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -246,7 +246,7 @@
 				20AEEDC623D9BEDD00A9CED3 /* WebOverlay.swift in Sources */,
 				20FF3CA723DAB74E00A09064 /* OverlayViewController.swift in Sources */,
 				20AEEDCB23D9C03D00A9CED3 /* StartOptions.swift in Sources */,
-				20FF3CA923DABB5000A09064 /* topViewController.swift in Sources */,
+				20FF3CA923DABB5000A09064 /* helpers.swift in Sources */,
 				20AEEE5E23D9D32600A9CED3 /* OverlayManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

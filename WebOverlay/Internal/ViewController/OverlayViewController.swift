@@ -18,7 +18,7 @@ private let webView: WKWebView = {
   
 override func viewDidLoad() {
   super.viewDidLoad()
-  webView.load(URLRequest(url: URL(string: "https://www.google.com")!))
+  webView.load(URLRequest(url: URL(string: "https://www.pollfish.com")!))
 }
   
 override func loadView() {

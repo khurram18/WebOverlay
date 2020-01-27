@@ -18,9 +18,11 @@ var options = [StartOptions: String]()
 @objc dynamic var advertisingId = ""
   
 private let adInfo: AdInfo
+private weak var closeDelegate: CloseDelegate?
   
-init(adInfo: AdInfo) {
+init(adInfo: AdInfo, closeDelegate: CloseDelegate) {
   self.adInfo = adInfo
+  self.closeDelegate = closeDelegate
 }
   
 func start() {
@@ -32,6 +34,10 @@ func start() {
       self.advertisingId = adId
     }
   }
+}
+  
+func close() {
+  closeDelegate?.close()
 }
   
 } // class OverlayViewModel

@@ -17,7 +17,12 @@ private let webView = WKWebView()
 private let topLabel = UILabel()
 private let bottomLabel = UILabel()
 private let adLabel = UILabel()
-private let closeButton = UIButton(type: .custom)
+private let closeButton: UIButton = {
+  let button = UIButton(type: .custom)
+  button.backgroundColor = .black
+  button.titleLabel?.textColor = .white
+  return button
+}()
 
 private var urlObservation: NSKeyValueObservation?
 private var option1Observation: NSKeyValueObservation?
@@ -28,6 +33,7 @@ private var adIdObservation: NSKeyValueObservation?
 override func viewWillAppear(_ animated: Bool) {
   super.viewWillAppear(animated)
   observeViewModel()
+  closeButton.addTarget(self, action: #selector(onCloseTap), for: .touchUpInside)
 }
   
 override func viewWillDisappear(_ animated: Bool) {
@@ -42,6 +48,11 @@ override func viewDidAppear(_ animated: Bool) {
   
 override func loadView() {
   let rootView = UIView()
+  if #available(iOS 13.0, *) {
+    rootView.backgroundColor = .systemBackground
+  } else {
+    rootView.backgroundColor = .white
+  }
   
   for view in [webView, topLabel, bottomLabel, adLabel, closeButton] {
     view.translatesAutoresizingMaskIntoConstraints = false
@@ -54,20 +65,29 @@ override func loadView() {
   
   webView.leftAnchor.constraint(equalTo: rootView.leftAnchor).isActive = true
   webView.rightAnchor.constraint(equalTo: rootView.rightAnchor).isActive = true
-  webView.topAnchor.constraint(equalTo: rootView.topAnchor).isActive = true
-  webView.bottomAnchor.constraint(equalTo: rootView.bottomAnchor).isActive = true
+  let topAnchor: NSLayoutYAxisAnchor
+  let bottomAnchor: NSLayoutYAxisAnchor
+  if #available(iOS 11.0, *) {
+    topAnchor = rootView.safeAreaLayoutGuide.topAnchor
+    bottomAnchor = rootView.safeAreaLayoutGuide.bottomAnchor
+  } else {
+    topAnchor = rootView.topAnchor
+    bottomAnchor = rootView.bottomAnchor
+  }
+  webView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+  webView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
   
   topLabel.centerXAnchor.constraint(equalTo: rootView.centerXAnchor).isActive = true
-  topLabel.topAnchor.constraint(equalTo: rootView.topAnchor, constant: 20).isActive = true
+  topLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20).isActive = true
   
   bottomLabel.centerXAnchor.constraint(equalTo: rootView.centerXAnchor).isActive = true
-  bottomLabel.bottomAnchor.constraint(equalTo: rootView.bottomAnchor, constant: -20).isActive = true
+  bottomLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20).isActive = true
   
   adLabel.centerXAnchor.constraint(equalTo: rootView.centerXAnchor).isActive = true
   adLabel.centerYAnchor.constraint(equalTo: rootView.centerYAnchor).isActive = true
   
   closeButton.leftAnchor.constraint(equalTo: rootView.leftAnchor, constant: 20).isActive = true
-  closeButton.topAnchor.constraint(equalTo: rootView.topAnchor, constant: 20).isActive = true
+  closeButton.topAnchor.constraint(equalTo: topAnchor, constant: 20).isActive = true
   
   view = rootView
 }
@@ -101,6 +121,10 @@ private func removeViewModelObservers() {
   option2Observation = nil
   closeTitleObservation = nil
   adIdObservation = nil
+}
+  
+@objc private func onCloseTap() {
+  viewModel?.close()
 }
   
 } // class OverlayViewController

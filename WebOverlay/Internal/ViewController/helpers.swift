@@ -23,3 +23,11 @@ func topViewController(from viewController: UIViewController) -> UIViewControlle
   }
   return viewController
 }
+
+func createOverlayViewController(options: [StartOptions: String], closeDelegate: CloseDelegate) -> OverlayViewController {
+  let viewController = OverlayViewController()
+  let viewModel = OverlayViewModel(adInfo: AdInfoProvider(), closeDelegate: closeDelegate)
+  viewModel.options = options
+  viewController.viewModel = viewModel
+  return viewController
+}

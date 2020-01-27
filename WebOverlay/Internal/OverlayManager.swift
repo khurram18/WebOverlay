@@ -19,18 +19,25 @@ init(_ options: [StartOptions: String]) {
 }
  
 func show() {
-  guard let rootViewController = UIApplication.shared.windows.last?.rootViewController else { return }
-  let parentController = topViewController(from: rootViewController)
-  let viewController = OverlayViewController()
-  let viewModel = OverlayViewModel(adInfo: AdInfoProvider())
-  viewModel.options = options
-  viewController.viewModel = viewModel
-  parentController.present(viewController, animated: true, completion: nil)
+  guard let window = UIApplication.shared.windows.last,
+    let rootViewController = window.rootViewController else { return }
+  let presentingViewController = topViewController(from: rootViewController)
+  let viewController = createOverlayViewController(options: options, closeDelegate: self)
+  viewController.modalPresentationStyle = .fullScreen
+  presentingViewController.view.window?.layer.add(getTransition(for: .show), forKey: kCATransition)
+  presentingViewController.present(viewController, animated: false, completion: nil)
   overlayViewController = viewController
 }
   
-private func postStartNotification() {
-  NotificationCenter.default.post(name: Notification.Name.webOverlayDidStart, object: nil)
+} // class OverlayManager
+
+extension OverlayManager: CloseDelegate {
+
+func close() {
+  guard let viewController = overlayViewController else { return }
+  viewController.view.window?.layer.add(getTransition(for: .close), forKey: kCATransition)
+  viewController.dismiss(animated: false, completion: nil)
+  overlayViewController = nil
 }
   
-} // class OverlayManager
+} // extension OverlayManager

@@ -19,6 +19,7 @@ init(_ options: [StartOptions: String]) {
 }
  
 func show() {
+  close() // First close if there is already an overlay view controller
   guard let window = UIApplication.shared.windows.last,
     let rootViewController = window.rootViewController else { return }
   let presentingViewController = topViewController(from: rootViewController)

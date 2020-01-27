@@ -19,15 +19,13 @@ private let bottomLabel = UILabel()
 private let adLabel = UILabel()
 private let closeButton: UIButton = {
   let button = UIButton(type: .custom)
-  button.backgroundColor = .black
-  button.titleLabel?.textColor = .white
+  button.setImage(UIImage(named: "close"), for: .normal)
   return button
 }()
 
 private var urlObservation: NSKeyValueObservation?
 private var option1Observation: NSKeyValueObservation?
 private var option2Observation: NSKeyValueObservation?
-private var closeTitleObservation: NSKeyValueObservation?
 private var adIdObservation: NSKeyValueObservation?
 
 override func viewWillAppear(_ animated: Bool) {
@@ -88,6 +86,8 @@ override func loadView() {
   
   closeButton.leftAnchor.constraint(equalTo: rootView.leftAnchor, constant: 20).isActive = true
   closeButton.topAnchor.constraint(equalTo: topAnchor, constant: 20).isActive = true
+  closeButton.widthAnchor.constraint(equalToConstant: 25).isActive = true
+  closeButton.heightAnchor.constraint(equalToConstant: 25).isActive = true
   
   view = rootView
 }
@@ -109,17 +109,12 @@ private func observeViewModel() {
   adIdObservation = viewModel.observe(\OverlayViewModel.advertisingId, options: [.new, .initial]) { _, change in
     self.adLabel.text = change.newValue
   }
-  closeTitleObservation = viewModel.observe(\OverlayViewModel.closeTitle, options: [.new, .initial]) { _, change in
-    guard let title = change.newValue else { return }
-    self.closeButton.setTitle(title, for: .normal)
-  }
 }
   
 private func removeViewModelObservers() {
   urlObservation = nil
   option1Observation = nil
   option2Observation = nil
-  closeTitleObservation = nil
   adIdObservation = nil
 }
   

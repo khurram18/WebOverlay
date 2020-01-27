@@ -14,7 +14,6 @@ var options = [StartOptions: String]()
 @objc dynamic var option1 = ""
 @objc dynamic var option2 = ""
 @objc dynamic var urlString = ""
-@objc dynamic var closeTitle = "close"
 @objc dynamic var advertisingId = ""
   
 private let adInfo: AdInfo

@@ -11,8 +11,9 @@ import Foundation
 final class OverlayViewModel: NSObject {
   
 var options = [StartOptions: String]()
-@objc dynamic var option1 = ""
-@objc dynamic var option2 = ""
+@objc dynamic var topTitle = ""
+@objc dynamic var bottomTitle = ""
+@objc dynamic var closeImageName = ""
 @objc dynamic var urlString = ""
 @objc dynamic var advertisingId = ""
   
@@ -27,8 +28,11 @@ init(adInfo: AdInfo, closeDelegate: CloseDelegate) {
 func start() {
   DispatchQueue.main.async {
     self.urlString = webUrlString
-    self.option1 = self.options[.option1] ?? defaultOption1
-    self.option2 = self.options[.option2] ?? defaultOption2
+    self.topTitle = self.options[.topTitle] ?? defaultTopTitle
+    self.bottomTitle = self.options[.bottomTitle] ?? defaultBottomTitle
+    if let imageName = self.options[.closeButtonImageName] {
+      self.closeImageName = imageName
+    }
     if let adId = self.adInfo.advertisingIdentifier?.uuidString {
       self.advertisingId = adId
     }

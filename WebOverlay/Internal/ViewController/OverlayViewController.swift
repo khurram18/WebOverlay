@@ -17,15 +17,12 @@ private let webView = WKWebView()
 private let topLabel = UILabel()
 private let bottomLabel = UILabel()
 private let adLabel = UILabel()
-private let closeButton: UIButton = {
-  let button = UIButton(type: .custom)
-  button.setImage(UIImage(named: "close"), for: .normal)
-  return button
-}()
+private let closeButton = UIButton(type: .custom)
 
 private var urlObservation: NSKeyValueObservation?
-private var option1Observation: NSKeyValueObservation?
-private var option2Observation: NSKeyValueObservation?
+private var topTitleObservation: NSKeyValueObservation?
+private var bottomTitleObservation: NSKeyValueObservation?
+private var closeImageNameObservation: NSKeyValueObservation?
 private var adIdObservation: NSKeyValueObservation?
 
 override func viewWillAppear(_ animated: Bool) {
@@ -100,22 +97,28 @@ private func observeViewModel() {
     guard let newValue = change.newValue, let url = URL(string: newValue) else { return }
     self.webView.load(URLRequest(url: url))
   }
-  option1Observation = viewModel.observe(\OverlayViewModel.option1, options: [.new, .initial]) { _, change in
+  topTitleObservation = viewModel.observe(\OverlayViewModel.topTitle, options: [.new, .initial]) { _, change in
     self.topLabel.text = change.newValue
   }
-  option2Observation = viewModel.observe(\OverlayViewModel.option2, options: [.new, .initial]) { _, change in
+  bottomTitleObservation = viewModel.observe(\OverlayViewModel.bottomTitle, options: [.new, .initial]) { _, change in
     self.bottomLabel.text = change.newValue
   }
   adIdObservation = viewModel.observe(\OverlayViewModel.advertisingId, options: [.new, .initial]) { _, change in
     self.adLabel.text = change.newValue
   }
+  closeImageNameObservation = viewModel.observe(\OverlayViewModel.closeImageName, options: [.new, .initial]) { _, change in
+    if let imageName = change.newValue {
+      self.closeButton.setImage(UIImage(named: imageName), for: .normal)
+    }
+  }
 }
   
 private func removeViewModelObservers() {
   urlObservation = nil
-  option1Observation = nil
-  option2Observation = nil
+  topTitleObservation = nil
+  bottomTitleObservation = nil
   adIdObservation = nil
+  closeImageNameObservation = nil
 }
   
 @objc private func onCloseTap() {

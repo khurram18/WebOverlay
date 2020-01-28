@@ -9,9 +9,9 @@
 import Foundation
 
 public enum StartOptions {
-  case option1
-  case option2
-  case option3
+  case topTitle
+  case bottomTitle
+  case closeButtonImageName
   case option4
   case option5
 }

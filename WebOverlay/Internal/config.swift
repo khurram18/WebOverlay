@@ -10,5 +10,5 @@ import Foundation
 
 let webUrlString = "https://www.pollfish.com"
 
-let defaultOption1 = "defaultOption1"
-let defaultOption2 = "defaultOption2"
+let defaultTopTitle = "defaultTopTitle"
+let defaultBottomTitle = "defaulBottomTitle"

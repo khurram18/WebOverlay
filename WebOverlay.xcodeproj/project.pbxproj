@@ -24,8 +24,6 @@
 		20D2D1FF23DEB5330091E79E /* transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D2D1FD23DEB5330091E79E /* transitions.swift */; };
 		20D2D20423DEB6DF0091E79E /* notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D2D20323DEB6DF0091E79E /* notifications.swift */; };
 		20D2D20523DEB6DF0091E79E /* notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D2D20323DEB6DF0091E79E /* notifications.swift */; };
-		20D2D20723DEBE670091E79E /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20D2D20623DEBE670091E79E /* Media.xcassets */; };
-		20D2D20823DEBE670091E79E /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20D2D20623DEBE670091E79E /* Media.xcassets */; };
 		20FF3CA723DAB74E00A09064 /* OverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FF3CA623DAB74E00A09064 /* OverlayViewController.swift */; };
 		20FF3CA923DABB5000A09064 /* helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FF3CA823DABB5000A09064 /* helpers.swift */; };
 		20FF3CB323DB4F3300A09064 /* OverlayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FF3CB223DB4F3300A09064 /* OverlayViewModel.swift */; };
@@ -62,7 +60,6 @@
 		20D2D1FA23DEB3430091E79E /* CloseDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseDelegate.swift; sourceTree = "<group>"; };
 		20D2D1FD23DEB5330091E79E /* transitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = transitions.swift; sourceTree = "<group>"; };
 		20D2D20323DEB6DF0091E79E /* notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notifications.swift; sourceTree = "<group>"; };
-		20D2D20623DEBE670091E79E /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		20FF3CA623DAB74E00A09064 /* OverlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayViewController.swift; sourceTree = "<group>"; };
 		20FF3CA823DABB5000A09064 /* helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helpers.swift; sourceTree = "<group>"; };
 		20FF3CB223DB4F3300A09064 /* OverlayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayViewModel.swift; sourceTree = "<group>"; };
@@ -111,7 +108,6 @@
 		20AEEDAD23D9BBC900A9CED3 /* WebOverlay */ = {
 			isa = PBXGroup;
 			children = (
-				20D2D20623DEBE670091E79E /* Media.xcassets */,
 				20AEEDC923D9C01600A9CED3 /* Internal */,
 				20AEEDC823D9BFDB00A9CED3 /* Public */,
 				20AEEDAF23D9BBC900A9CED3 /* Info.plist */,
@@ -273,7 +269,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20D2D20723DEBE670091E79E /* Media.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,7 +276,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20D2D20823DEBE670091E79E /* Media.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

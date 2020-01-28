@@ -17,16 +17,30 @@ public static let sharedInstance = WebOverlay()
   
 public func start(with options: [StartOptions: String]) {
   self.options = options
-  manager = OverlayManager(options)
+  createManager()
 }
 
 public func show() {
   manager?.show()
 }
 
-
 private init() {
   listenOrientationChangeNotifications()
+}
+  
+private func createManager() {
+  let visible = self.manager?.isOverlayVisible ?? false
+  let completion = {
+    self.manager = OverlayManager(self.options)
+    if visible {
+      self.manager?.show()
+    }
+  }
+  if visible {
+    self.manager?.close(completion: completion)
+  } else {
+    completion()
+  }
 }
   
 } // class WebOverlay
@@ -38,18 +52,7 @@ private func listenOrientationChangeNotifications() {
 }
 @objc private func onOrientationChange(_ notification: Notification) {
   DispatchQueue.main.async {
-    let visible = self.manager?.isOverlayVisible ?? false
-    let completion = {
-      self.manager = OverlayManager(self.options)
-      if visible {
-        self.manager?.show()
-      }
-    }
-    if visible {
-      self.manager?.close(completion: completion)
-    } else {
-      completion()
-    }
+    self.createManager()
   }
 }
 } // extension WebOverlay

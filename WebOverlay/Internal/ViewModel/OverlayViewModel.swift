@@ -26,6 +26,11 @@ init(adInfo: AdInfo, closeDelegate: CloseDelegate) {
 }
   
 func start() {
+  guard let adId = adInfo.advertisingIdentifier?.uuidString else {
+    // we do not have a valid ad id, close overlay view
+    close()
+    return
+  }
   DispatchQueue.main.async {
     self.urlString = webUrlString
     self.topTitle = self.options[.topTitle] ?? defaultTopTitle
@@ -33,14 +38,17 @@ func start() {
     if let imageName = self.options[.closeButtonImageName] {
       self.closeImageName = imageName
     }
-    if let adId = self.adInfo.advertisingIdentifier?.uuidString {
-      self.advertisingId = adId
-    }
+    self.advertisingId = adId
   }
 }
   
 func close() {
-  closeDelegate?.close()
+  closeDelegate?.close(completion: nil)
+}
+
+func webLoadingFailed(withError error: Error) {
+  // web loading is failed, close overlay view
+  close()
 }
   
 } // class OverlayViewModel

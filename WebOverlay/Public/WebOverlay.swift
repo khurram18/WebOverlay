@@ -37,7 +37,19 @@ private func listenOrientationChangeNotifications() {
   NotificationCenter.default.addObserver(self, selector: #selector(onOrientationChange(_:)), name: UIDevice.orientationDidChangeNotification, object: nil)
 }
 @objc private func onOrientationChange(_ notification: Notification) {
-  manager?.close()
-  manager = OverlayManager(options)
+  DispatchQueue.main.async {
+    let visible = self.manager?.isOverlayVisible ?? false
+    let completion = {
+      self.manager = OverlayManager(self.options)
+      if visible {
+        self.manager?.show()
+      }
+    }
+    if visible {
+      self.manager?.close(completion: completion)
+    } else {
+      completion()
+    }
+  }
 }
 } // extension WebOverlay

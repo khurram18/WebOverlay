@@ -29,11 +29,13 @@ override func viewWillAppear(_ animated: Bool) {
   super.viewWillAppear(animated)
   observeViewModel()
   closeButton.addTarget(self, action: #selector(onCloseTap), for: .touchUpInside)
+  webView.navigationDelegate = self
 }
   
 override func viewWillDisappear(_ animated: Bool) {
   super.viewWillDisappear(animated)
   removeViewModelObservers()
+  webView.navigationDelegate = nil
 }
   
 override func viewDidAppear(_ animated: Bool) {
@@ -126,3 +128,9 @@ private func removeViewModelObservers() {
 }
   
 } // class OverlayViewController
+
+extension OverlayViewController: WKNavigationDelegate {
+func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+  
+}
+} // extension OverlayViewController

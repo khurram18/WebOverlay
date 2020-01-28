@@ -31,3 +31,9 @@ func createOverlayViewController(options: [StartOptions: String], closeDelegate:
   viewController.viewModel = viewModel
   return viewController
 }
+
+extension UIViewController {
+var isVisble: Bool {
+  isViewLoaded && view.window != nil
+}
+}

@@ -10,6 +10,7 @@ import Foundation
 
 extension Notification.Name {
   
-public static let webOverlayDidStart: Notification.Name = Notification.Name("")
+public static let webOverlayDidShow: Notification.Name = Notification.Name("WebOverlay.webOverlayDidShow")
+public static let webOverlayDidClose: Notification.Name = Notification.Name("WebOverlay.webOverlayDidClose")
   
 }

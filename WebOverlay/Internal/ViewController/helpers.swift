@@ -32,6 +32,10 @@ func createOverlayViewController(options: [StartOptions: String], closeDelegate:
   return viewController
 }
 
+func getFirstViewController() -> UIViewController? {
+  UIApplication.shared.windows.last?.rootViewController
+}
+
 extension UIViewController {
 var isVisble: Bool {
   isViewLoaded && view.window != nil

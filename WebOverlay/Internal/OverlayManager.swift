@@ -24,10 +24,7 @@ init(_ options: [StartOptions: String]) {
  
 func show() {
   let completion = {
-    guard let window = UIApplication.shared.windows.last,
-      let rootViewController = window.rootViewController else {
-        return
-    }
+    guard let rootViewController = getFirstViewController() else { return }
     let presentingViewController = topViewController(from: rootViewController)
     let viewController = createOverlayViewController(options: self.options, closeDelegate: self)
     viewController.modalPresentationStyle = .fullScreen

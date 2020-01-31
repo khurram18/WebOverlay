@@ -21,7 +21,7 @@ func testCloseOverlay() {
   let sut = OverlayManager(testStartOptions)
   let showNotificationExpectation = expectation(forNotification: .webOverlayDidClose, object: nil, handler: nil)
   sut.show() {
-    sut.close(completion: nil)
+    sut.close(error: nil, completion: nil)
   }
   wait(for: [showNotificationExpectation], timeout: 2)
 }

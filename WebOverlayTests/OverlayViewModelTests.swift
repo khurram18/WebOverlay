@@ -26,25 +26,25 @@ var advertisingIdentifier: UUID? {
   
 } // class ValidAdInfo
 
-final class CloseHelper: CloseDelegate {
+final class ErrorCloseHelper: CloseDelegate {
 let expectation: XCTestExpectation
-let fulFillOnError: Bool
-init(expectation: XCTestExpectation, fulFillOnError: Bool) {
+init(expectation: XCTestExpectation) {
   self.expectation = expectation
-  self.fulFillOnError = fulFillOnError
 }
   
 func close(error: Error?, completion: (() -> Void)?) {
-  if fulFillOnError {
-    if error != nil {
-      expectation.fulfill()
-    }
-  } else {
+  if error != nil {
     expectation.fulfill()
   }
-} // class CloseHelper
-  
 }
+} // class ErrorCloseHelper
+
+final class MockCloseDelegate: CloseDelegate {
+  
+func close(error: Error?, completion: (() -> Void)?) { }
+  
+} // class MockCloseDelegate
+
 final class OverlayViewModelTests: XCTestCase {
   
 var closeDelegates = [CloseDelegate]()
@@ -55,7 +55,7 @@ override func setUp() {
 
 func testInValidAdInfo() {
   let exp = defaultExpectation()
-  let closeHelper = CloseHelper(expectation: exp, fulFillOnError: false)
+  let closeHelper = ErrorCloseHelper(expectation: exp)
   let sut = OverlayViewModel(adInfo: InValidAdInfo(), closeDelegate: closeHelper)
   sut.start()
   closeDelegates.append(closeHelper)
@@ -64,16 +64,21 @@ func testInValidAdInfo() {
   
 func testValidAdInfo() {
   let exp = defaultExpectation()
-  let closeHelper = CloseHelper(expectation: exp, fulFillOnError: true)
-  let sut = OverlayViewModel(adInfo: ValidAdInfo(), closeDelegate: closeHelper)
+  let sut = OverlayViewModel(adInfo: ValidAdInfo(), closeDelegate: MockCloseDelegate())
+  let observer = sut.observe(\OverlayViewModel.advertisingId, options: [.new, .initial]) { _, change in
+    if let adId = change.newValue,
+      !adId.isEmpty {
+      exp.fulfill()
+    }
+  }
+  observers.append(observer)
   sut.start()
-  closeDelegates.append(closeHelper)
-  wait(for: [exp], timeout: 2)
+  wait(for: [exp], timeout: 1)
 }
   
 func testTopTitle() {
   let exp = defaultExpectation()
-  let sut = OverlayViewModel(adInfo: ValidAdInfo(), closeDelegate: CloseHelper(expectation: exp, fulFillOnError: false))
+  let sut = OverlayViewModel(adInfo: ValidAdInfo(), closeDelegate: MockCloseDelegate())
   sut.options = testStartOptions
   let observer = sut.observe(\OverlayViewModel.topTitle, options: [.new, .initial]) { _, change in
     if change.newValue == "topTitle" {
@@ -86,7 +91,7 @@ func testTopTitle() {
 }
 func testBottomTitle() {
   let exp = defaultExpectation()
-  let sut = OverlayViewModel(adInfo: ValidAdInfo(), closeDelegate: CloseHelper(expectation: exp, fulFillOnError: false))
+  let sut = OverlayViewModel(adInfo: ValidAdInfo(), closeDelegate: MockCloseDelegate())
   sut.options = testStartOptions
   let observer = sut.observe(\OverlayViewModel.bottomTitle, options: [.new, .initial]) { _, change in
     if change.newValue == "bottomTitle" {
@@ -99,7 +104,7 @@ func testBottomTitle() {
 }
 func testCloseImageName() {
   let exp = defaultExpectation()
-  let sut = OverlayViewModel(adInfo: ValidAdInfo(), closeDelegate: CloseHelper(expectation: exp, fulFillOnError: false))
+  let sut = OverlayViewModel(adInfo: ValidAdInfo(), closeDelegate: MockCloseDelegate())
   sut.options = testStartOptions
   let observer = sut.observe(\OverlayViewModel.closeImageName, options: [.new, .initial]) { _, change in
     if change.newValue == "closeButtonImageName" {

@@ -22,16 +22,17 @@ init(_ options: [StartOptions: String]) {
   self.options = options
 }
  
-func show() {
+func show(completion: (() -> Void)?) {
   let completion = {
     if let rootViewController = getRootViewController() {
-      let presentingViewController = topViewController(from: rootViewController) 
+      let presentingViewController = topViewController(from: rootViewController)
       let viewController = createOverlayViewController(options: self.options, closeDelegate: self)
       viewController.modalPresentationStyle = .fullScreen
       presentingViewController.view.window?.layer.add(getTransition(for: .show), forKey: kCATransition)
       presentingViewController.present(viewController, animated: false, completion: nil)
       self.overlayViewController = viewController
     }
+    completion?()
     postShowNotification()
   }
   close(completion: completion) // First close if there is already an overlay view controller
@@ -42,12 +43,11 @@ func show() {
 extension OverlayManager: CloseDelegate {
 
 func close(completion: (() -> Void)?) {
-  guard let viewController = overlayViewController else {
-    completion?()
-    return
+  if let viewController = overlayViewController {
+    viewController.view.window?.layer.add(getTransition(for: .close), forKey: kCATransition)
+    viewController.dismiss(animated: false, completion: completion)
   }
-  viewController.view.window?.layer.add(getTransition(for: .close), forKey: kCATransition)
-  viewController.dismiss(animated: false, completion: completion)
+  completion?()
   overlayViewController = nil
   postCloseNotification(userInfo: userInfoForCloseNotification())
 }

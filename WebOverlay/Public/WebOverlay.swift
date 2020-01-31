@@ -21,7 +21,7 @@ public func start(with options: [StartOptions: String]) {
 }
 
 public func show() {
-  manager?.show()
+  manager?.show(completion: nil)
 }
 
 private init() {
@@ -33,7 +33,7 @@ private func createManager() {
   let completion = {
     self.manager = OverlayManager(self.options)
     if visible {
-      self.manager?.show()
+      self.manager?.show(completion: nil)
     }
   }
   if visible {

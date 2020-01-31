@@ -37,7 +37,7 @@ private func createManager() {
     }
   }
   if visible {
-    self.manager?.close(completion: completion)
+    self.manager?.close(error: nil, completion: completion)
   } else {
     completion()
   }

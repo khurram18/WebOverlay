@@ -10,6 +10,6 @@ import Foundation
 
 protocol CloseDelegate: class {
   
-func close(completion: (() -> Void)?)
+func close(error: Error?, completion: (() -> Void)?)
   
 }

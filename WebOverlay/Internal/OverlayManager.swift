@@ -35,20 +35,23 @@ func show(completion: (() -> Void)?) {
     completion?()
     postShowNotification()
   }
-  close(completion: completion) // First close if there is already an overlay view controller
+  close(error: nil, completion: completion) // First close if there is already an overlay view controller
 }
   
 } // class OverlayManager
 
 extension OverlayManager: CloseDelegate {
 
-func close(completion: (() -> Void)?) {
+func close(error: Error?, completion: (() -> Void)?) {
+  if let error = error {
+    print(error)
+  }
   if let viewController = overlayViewController {
     viewController.view.window?.layer.add(getTransition(for: .close), forKey: kCATransition)
     viewController.dismiss(animated: false, completion: completion)
   }
-  completion?()
   overlayViewController = nil
+  completion?()
   postCloseNotification(userInfo: userInfoForCloseNotification())
 }
 private func userInfoForCloseNotification() -> [AnyHashable: Any]{

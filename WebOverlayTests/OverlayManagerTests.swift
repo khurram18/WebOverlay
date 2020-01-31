@@ -8,7 +8,7 @@
 @testable import WebOverlay
 import XCTest
 
-class OverlayManagerTests: XCTestCase {
+final class OverlayManagerTests: XCTestCase {
 
 func testShowOverlay() {
   let sut = OverlayManager(testStartOptions)
@@ -23,8 +23,7 @@ func testCloseOverlay() {
   sut.show() {
     sut.close(completion: nil)
   }
-  
   wait(for: [showNotificationExpectation], timeout: 2)
 }
   
-}
+} // class OverlayManagerTests

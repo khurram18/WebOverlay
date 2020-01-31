@@ -11,6 +11,10 @@
 		205BF33D23E3FF3B00D82F34 /* OverlayManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205BF33C23E3FF3B00D82F34 /* OverlayManagerTests.swift */; };
 		205BF33E23E3FFD200D82F34 /* OverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FF3CA623DAB74E00A09064 /* OverlayViewController.swift */; };
 		205BF33F23E3FFE000D82F34 /* helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FF3CA823DABB5000A09064 /* helpers.swift */; };
+		205BF34123E4036700D82F34 /* OverlayViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205BF34023E4036700D82F34 /* OverlayViewModelTests.swift */; };
+		205BF34323E404FA00D82F34 /* defaultExpectation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205BF34223E404FA00D82F34 /* defaultExpectation.swift */; };
+		205BF34523E437E500D82F34 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205BF34423E437E500D82F34 /* Error.swift */; };
+		205BF34623E437E500D82F34 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205BF34423E437E500D82F34 /* Error.swift */; };
 		20AEEDB523D9BBC900A9CED3 /* WebOverlay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20AEEDAB23D9BBC900A9CED3 /* WebOverlay.framework */; };
 		20AEEDBA23D9BBC900A9CED3 /* WebOverlayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AEEDB923D9BBC900A9CED3 /* WebOverlayTests.swift */; };
 		20AEEDBC23D9BBC900A9CED3 /* WebOverlay.h in Headers */ = {isa = PBXBuildFile; fileRef = 20AEEDAE23D9BBC900A9CED3 /* WebOverlay.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -53,6 +57,9 @@
 /* Begin PBXFileReference section */
 		205BF33A23E3FED800D82F34 /* testStartOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testStartOptions.swift; sourceTree = "<group>"; };
 		205BF33C23E3FF3B00D82F34 /* OverlayManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayManagerTests.swift; sourceTree = "<group>"; };
+		205BF34023E4036700D82F34 /* OverlayViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayViewModelTests.swift; sourceTree = "<group>"; };
+		205BF34223E404FA00D82F34 /* defaultExpectation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = defaultExpectation.swift; sourceTree = "<group>"; };
+		205BF34423E437E500D82F34 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		20AEEDAB23D9BBC900A9CED3 /* WebOverlay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WebOverlay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		20AEEDAE23D9BBC900A9CED3 /* WebOverlay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebOverlay.h; sourceTree = "<group>"; };
 		20AEEDAF23D9BBC900A9CED3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -125,9 +132,11 @@
 			isa = PBXGroup;
 			children = (
 				20AEEDBB23D9BBC900A9CED3 /* Info.plist */,
+				205BF34223E404FA00D82F34 /* defaultExpectation.swift */,
+				205BF33C23E3FF3B00D82F34 /* OverlayManagerTests.swift */,
+				205BF34023E4036700D82F34 /* OverlayViewModelTests.swift */,
 				205BF33A23E3FED800D82F34 /* testStartOptions.swift */,
 				20AEEDB923D9BBC900A9CED3 /* WebOverlayTests.swift */,
-				205BF33C23E3FF3B00D82F34 /* OverlayManagerTests.swift */,
 			);
 			path = WebOverlayTests;
 			sourceTree = "<group>";
@@ -139,6 +148,7 @@
 				20AEEDAE23D9BBC900A9CED3 /* WebOverlay.h */,
 				20AEEDC523D9BEDD00A9CED3 /* WebOverlay.swift */,
 				20AEEE6323D9D65600A9CED3 /* Notifications.swift */,
+				205BF34423E437E500D82F34 /* Error.swift */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -306,6 +316,7 @@
 				20FF3CC123DB7A9B00A09064 /* AddInfoProvider.swift in Sources */,
 				20FF3CA923DABB5000A09064 /* helpers.swift in Sources */,
 				20FF3CB623DB5D4000A09064 /* config.swift in Sources */,
+				205BF34523E437E500D82F34 /* Error.swift in Sources */,
 				20AEEE5E23D9D32600A9CED3 /* OverlayManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,6 +331,7 @@
 				20FF3CC223DB7A9B00A09064 /* AddInfoProvider.swift in Sources */,
 				20AEEE6523D9D65600A9CED3 /* Notifications.swift in Sources */,
 				20FF3CB723DB5D4000A09064 /* config.swift in Sources */,
+				205BF34323E404FA00D82F34 /* defaultExpectation.swift in Sources */,
 				20AEEE5F23D9D32600A9CED3 /* OverlayManager.swift in Sources */,
 				20AEEDBA23D9BBC900A9CED3 /* WebOverlayTests.swift in Sources */,
 				20AEEDC723D9BEDD00A9CED3 /* WebOverlay.swift in Sources */,
@@ -329,7 +341,9 @@
 				20D2D1FF23DEB5330091E79E /* transitions.swift in Sources */,
 				205BF33E23E3FFD200D82F34 /* OverlayViewController.swift in Sources */,
 				20FF3CB423DB4F3300A09064 /* OverlayViewModel.swift in Sources */,
+				205BF34123E4036700D82F34 /* OverlayViewModelTests.swift in Sources */,
 				20D2D1FC23DEB3430091E79E /* CloseDelegate.swift in Sources */,
+				205BF34623E437E500D82F34 /* Error.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

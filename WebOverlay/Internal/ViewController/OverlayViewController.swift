@@ -124,7 +124,7 @@ private func removeViewModelObservers() {
 }
   
 @objc private func onCloseTap() {
-  viewModel?.close()
+  viewModel?.close(error: nil)
 }
   
 } // class OverlayViewController

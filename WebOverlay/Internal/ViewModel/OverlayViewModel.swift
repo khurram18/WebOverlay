@@ -28,7 +28,7 @@ init(adInfo: AdInfo, closeDelegate: CloseDelegate) {
 func start() {
   guard let adId = adInfo.advertisingIdentifier?.uuidString else {
     // we do not have a valid ad id, close overlay view
-    close()
+    close(error: NSError(domain: "WebOverlay", code: -1, userInfo: [adIdNotFoundKey: "No valid AdId found"]))
     return
   }
   DispatchQueue.main.async {
@@ -42,13 +42,13 @@ func start() {
   }
 }
   
-func close() {
-  closeDelegate?.close(completion: nil)
+func close(error: Error?) {
+  closeDelegate?.close( error: error, completion: nil)
 }
 
 func webLoadingFailed(withError error: Error) {
   // web loading is failed, close overlay view
-  close()
+  close(error: error)
 }
   
 } // class OverlayViewModel

@@ -49,9 +49,6 @@ final class OverlayViewModelTests: XCTestCase {
   
 var closeDelegates = [CloseDelegate]()
 var observers = [NSKeyValueObservation]()
-  
-override func setUp() {
-}
 
 func testInValidAdInfo() {
   let exp = defaultExpectation()

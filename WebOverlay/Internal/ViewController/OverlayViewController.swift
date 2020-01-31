@@ -30,6 +30,7 @@ override func viewWillAppear(_ animated: Bool) {
   observeViewModel()
   closeButton.addTarget(self, action: #selector(onCloseTap), for: .touchUpInside)
   webView.navigationDelegate = self
+  updateLabelColors()
 }
   
 override func viewWillDisappear(_ animated: Bool) {
@@ -127,6 +128,11 @@ private func removeViewModelObservers() {
   viewModel?.close(error: nil)
 }
   
+private func updateLabelColors() {
+  for label in [topLabel, bottomLabel, adLabel] {
+    label.textColor = .red
+  }
+}
 } // class OverlayViewController
 
 extension OverlayViewController: WKNavigationDelegate {

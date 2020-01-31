@@ -1,3 +1,6 @@
+// swift-tools-version:5.1
+// The swift-tools-version declares the minimum version of Swift required to build this package
+
 import PackageDescription
 let package = Package(
 	name: "WebOverlay",
@@ -5,6 +8,6 @@ let package = Package(
     products: [
         .library(name: "WebOverlay", targets: ["WebOverlay"])
     ],
-    targets: [.target(name: "WebOverlay", path: "WebOverlay")
+    targets: [.target(name: "WebOverlay", dependencies: [], path: "WebOverlay")
     ]
 )

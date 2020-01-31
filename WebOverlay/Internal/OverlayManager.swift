@@ -24,13 +24,14 @@ init(_ options: [StartOptions: String]) {
  
 func show() {
   let completion = {
-    guard let rootViewController = getFirstViewController() else { return }
-    let presentingViewController = topViewController(from: rootViewController)
-    let viewController = createOverlayViewController(options: self.options, closeDelegate: self)
-    viewController.modalPresentationStyle = .fullScreen
-    presentingViewController.view.window?.layer.add(getTransition(for: .show), forKey: kCATransition)
-    presentingViewController.present(viewController, animated: false, completion: nil)
-    self.overlayViewController = viewController
+    if let rootViewController = getRootViewController() {
+      let presentingViewController = topViewController(from: rootViewController) 
+      let viewController = createOverlayViewController(options: self.options, closeDelegate: self)
+      viewController.modalPresentationStyle = .fullScreen
+      presentingViewController.view.window?.layer.add(getTransition(for: .show), forKey: kCATransition)
+      presentingViewController.present(viewController, animated: false, completion: nil)
+      self.overlayViewController = viewController
+    }
     postShowNotification()
   }
   close(completion: completion) // First close if there is already an overlay view controller

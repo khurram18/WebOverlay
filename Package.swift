@@ -5,6 +5,6 @@ let package = Package(
     products: [
         .library(name: "WebOverlay", targets: ["WebOverlay"])
     ],
-    targets: [.target(name: "WebOverlay", dependencies: [], path: "WebOverlay")
+    targets: [.target(name: "WebOverlay", path: "WebOverlay")
     ]
 )

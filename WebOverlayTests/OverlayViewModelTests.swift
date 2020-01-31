@@ -49,6 +49,7 @@ final class OverlayViewModelTests: XCTestCase {
   
 var closeDelegates = [CloseDelegate]()
 var observers = [NSKeyValueObservation]()
+var viewModels = [OverlayViewModel]()
 
 func testInValidAdInfo() {
   let exp = defaultExpectation()
@@ -70,6 +71,7 @@ func testValidAdInfo() {
   }
   observers.append(observer)
   sut.start()
+  viewModels.append(sut)
   wait(for: [exp], timeout: 1)
 }
   
@@ -84,6 +86,7 @@ func testTopTitle() {
   }
   observers.append(observer)
   sut.start()
+  viewModels.append(sut)
   wait(for: [exp], timeout: 1)
 }
 func testBottomTitle() {
@@ -97,6 +100,7 @@ func testBottomTitle() {
   }
   observers.append(observer)
   sut.start()
+  viewModels.append(sut)
   wait(for: [exp], timeout: 1)
 }
 func testCloseImageName() {
@@ -110,6 +114,7 @@ func testCloseImageName() {
   }
   observers.append(observer)
   sut.start()
+  viewModels.append(sut)
   wait(for: [exp], timeout: 1)
 }
 } // class OverlayViewModelTests

@@ -27,7 +27,6 @@
 		205BF36523E43D2500D82F34 /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205BF36423E43D2500D82F34 /* AppTests.swift */; };
 		205BF37023E43D2500D82F34 /* AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205BF36F23E43D2500D82F34 /* AppUITests.swift */; };
 		20AEEDB523D9BBC900A9CED3 /* WebOverlay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20AEEDAB23D9BBC900A9CED3 /* WebOverlay.framework */; };
-		20AEEDBA23D9BBC900A9CED3 /* WebOverlayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AEEDB923D9BBC900A9CED3 /* WebOverlayTests.swift */; };
 		20AEEDBC23D9BBC900A9CED3 /* WebOverlay.h in Headers */ = {isa = PBXBuildFile; fileRef = 20AEEDAE23D9BBC900A9CED3 /* WebOverlay.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		20AEEDC623D9BEDD00A9CED3 /* WebOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AEEDC523D9BEDD00A9CED3 /* WebOverlay.swift */; };
 		20AEEDC723D9BEDD00A9CED3 /* WebOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AEEDC523D9BEDD00A9CED3 /* WebOverlay.swift */; };
@@ -125,7 +124,6 @@
 		20AEEDAE23D9BBC900A9CED3 /* WebOverlay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebOverlay.h; sourceTree = "<group>"; };
 		20AEEDAF23D9BBC900A9CED3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		20AEEDB423D9BBC900A9CED3 /* WebOverlayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebOverlayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		20AEEDB923D9BBC900A9CED3 /* WebOverlayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebOverlayTests.swift; sourceTree = "<group>"; };
 		20AEEDBB23D9BBC900A9CED3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		20AEEDC523D9BEDD00A9CED3 /* WebOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebOverlay.swift; sourceTree = "<group>"; };
 		20AEEDCA23D9C03D00A9CED3 /* StartOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartOptions.swift; sourceTree = "<group>"; };
@@ -266,7 +264,6 @@
 				205BF33C23E3FF3B00D82F34 /* OverlayManagerTests.swift */,
 				205BF34023E4036700D82F34 /* OverlayViewModelTests.swift */,
 				205BF33A23E3FED800D82F34 /* testStartOptions.swift */,
-				20AEEDB923D9BBC900A9CED3 /* WebOverlayTests.swift */,
 			);
 			path = WebOverlayTests;
 			sourceTree = "<group>";
@@ -583,7 +580,6 @@
 				20FF3CB723DB5D4000A09064 /* config.swift in Sources */,
 				205BF34323E404FA00D82F34 /* defaultExpectation.swift in Sources */,
 				20AEEE5F23D9D32600A9CED3 /* OverlayManager.swift in Sources */,
-				20AEEDBA23D9BBC900A9CED3 /* WebOverlayTests.swift in Sources */,
 				20AEEDC723D9BEDD00A9CED3 /* WebOverlay.swift in Sources */,
 				20AEEDCC23D9C03D00A9CED3 /* StartOptions.swift in Sources */,
 				205BF33B23E3FED800D82F34 /* testStartOptions.swift in Sources */,

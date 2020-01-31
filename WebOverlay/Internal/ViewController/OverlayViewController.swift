@@ -131,6 +131,6 @@ private func removeViewModelObservers() {
 
 extension OverlayViewController: WKNavigationDelegate {
 func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-  viewModel?.close(error: error)
+  viewModel?.webLoadingFailed(withError: error)
 }
 } // extension OverlayViewController

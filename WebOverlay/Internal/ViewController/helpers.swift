@@ -32,8 +32,13 @@ func createOverlayViewController(options: [StartOptions: String], closeDelegate:
   return viewController
 }
 
-func getFirstViewController() -> UIViewController? {
-  UIApplication.shared.windows.last?.rootViewController
+func getRootViewController() -> UIViewController? {
+  for window in UIApplication.shared.windows {
+    if window.isKeyWindow {
+      return window.rootViewController
+    }
+  }
+  return nil
 }
 
 extension UIViewController {
